@@ -1,21 +1,19 @@
 package com.supermodel.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.supermodel.dao.SupermodelRepository;
 import com.supermodel.model.Supermodel;
 import com.supermodel.service.SupermodelService;
-import net.bytebuddy.implementation.bind.annotation.Super;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Controller
 @RequestMapping("supermodel")
@@ -36,10 +34,10 @@ public class SupermodelController {
         return supermodelService.addSupermodels(names, imgUrls);
     }
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "/api/supermodels")
     public @ResponseBody
-    Iterable<Supermodel> getSupermodels() {
-        return supermodelService.getSupermodels();
+    List<Supermodel> getSupermodels() {
+        return StreamSupport.stream(supermodelService.getSupermodels().spliterator(),false).collect(Collectors.toList());
     }
 
     @DeleteMapping(path = "/self-destruct")
