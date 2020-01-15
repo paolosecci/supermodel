@@ -59,11 +59,11 @@ public class SupermodelController {
         String clientIP = request.getRemoteAddr();
         System.out.println(clientIP);
 
-        //cast supermodelDB data into String from JSONArray (using jsonify service.method)
-        String jsonStr = supermodelService.jsonify(supermodelService.getSupermodels());
-
-        // add json as spring MODEL attribute
-        model.addAttribute("dataJson", jsonStr);
+//        //cast supermodelDB data into String from JSONArray (using jsonify service.method)
+//        String jsonStr = supermodelService.jsonify(supermodelService.getSupermodels());
+//
+//        // add json as spring MODEL attribute
+//        model.addAttribute("dataJson", jsonStr);
 
         return "home";
     }
