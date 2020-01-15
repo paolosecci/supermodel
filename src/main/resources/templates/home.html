@@ -23,14 +23,14 @@
             font-size: 100px;
             margin: 0;
         }
+        a{
+            height: 200px;
+        }
     </style>
 </head>
 <body style="line-height: 75px;">
     <p>MySQL Supermodels</p>
     <div class="container" id="modelsLocation"></div>
-    <script th:inline="javascript">
-        var dataStr = [[${dataJson}]];
-    </script>
     <script type="text/javascript" th:src="@{/js/logic.js}"></script>
 </body>
 </html>

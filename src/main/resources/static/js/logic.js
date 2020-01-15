@@ -5,18 +5,18 @@ function renderData(data){
     //create location for supermodel imgs
     const modelsLoc = document.getElementById("modelsLocation");
 
-    for(var i = 0; i < data.length; i++){
+    for(let i = 0; i < data.length; i++){
 
         //get data for this sm
-        var sm = data[i];
+        const sm = data[i];
 
         //build img container a
-        var a = document.createElement("a");
+        const a = document.createElement("a");
         a.href = "/supermodel/" + sm['name'];
         a.height = 200;
 
         //build img element
-        var img = document.createElement("IMG");
+        const img = document.createElement("IMG");
         img.src = sm['imgUrl'];
         img.height = 200;
 
@@ -27,8 +27,7 @@ function renderData(data){
 }
 
 //get data from api endpoint
-var data;
-fetch("/supermodel/api/supermodels").then((re) => {return re.json();}).then(function(re_json_promise){
-    renderData(re_json_promise);
-}).catch((err)=>{console.log(err)});
-
+fetch("/supermodel/api/supermodels")
+    .then(response => response.json())
+    .then(supermodels => renderData(supermodels))
+    .catch(err => console.log(err));
