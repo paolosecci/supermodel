@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supermodels</title>
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            padding-inline-end: 0;
+            padding-inline-start: 0;
+
+            padding-block-end: 0;
+            padding-block-start: 0;
+        }
+        @font-face {
+            font-family: 'Paolos Handwriting';
+            src: url('/static/css/fonts/PaolosHandwriting-Regular.otf');
+        }
+        p {
+            font-family: "Paolos Handwriting";
+            font-size: 100px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body style="line-height: 75px;">
+    <p>MySQL Supermodels</p>
+    <div class="container" id="modelsLocation"></div>
+    <script th:inline="javascript">
+        var dataStr = [[${dataJson}]];
+    </script>
+    <script type="text/javascript" th:src="@{/js/logic.js}"></script>
+</body>
+</html>

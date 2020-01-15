@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supermodel</title>
+    <style>
+        @font-face {
+            font-family: 'Paolos Handwriting';
+            src: url('/static/css/fonts/PaolosHandwriting-Regular.otf');
+        }
+        p {
+            font-family: "Paolos Handwriting";
+            font-size: 100px;
+            margin: 0;
+        }
+        button {
+             font-family: "Paolos Handwriting";
+             font-size: 100px;
+             margin: 0;
+         }
+
+    </style>
+</head>
+<body>
+    <p th:text="${NAME}" id="supermodelName">SDP</p><br>
+    <img th:src="@{${imgUrl}}" height="500"><br>
+    <button id="addToRunway" onclick="addToRunway()">Add To Runway</button>
+</body>
+</html>
