@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel='icon' th:href="@{/imgs/kim_k.jpg}"  />
-    <title>Supermodels</title>
+    <title>Register</title>
     <style>
         @font-face {
             font-family: 'Paolos Handwriting';
@@ -15,20 +15,23 @@
             margin: 0;
         }
         button{
-            width: 250px;
-            height: 70px;
+            width: 150px;
+            height: 50px;
             font-family: "Paolos Handwriting";
             font-size: 65px;
             border-radius: 10px;
         }
     </style>
 </head>
-<body style="line-height: 75px;">
-<br><br><br>
-<p align="center">MySQL Supermodels</p>
-<div class="container" id="modelsLocation"></div>
+<body>
 <div align="center">
-    <button onclick="window.location.href='/supermodel/register'">register</button><button onclick="window.location.href='/supermodel/login'">login</button>
+    <p id="LogInPrompt">Log In</p>
+    <br>
+    <td><input type="text" size=60 id="un" name="userun" placeholder="username" style="text-align:center; font-size:50px; font-family: 'Paolos Handwriting'"></td>
+    <br><br>
+    <td><input type="text" size=60 id="pw" name="userpw" placeholder="password" style="text-align:center; font-size:50px; font-family: 'Paolos Handwriting'"></td>
+    <br><br>
+    <script type="text/javascript" th:src="@{/js/login.js}"></script>
+    <button onclick="validateUser();">enter</button>
 </div>
 </body>
-</html>

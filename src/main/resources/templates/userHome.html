@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' th:href="@{/imgs/kim_k.jpg}" />
+    <title id="title">Supermodels</title>
+    <style>
+        @font-face {
+            font-family: 'Paolos Handwriting';
+            src: url('/static/css/fonts/PaolosHandwriting-Regular.otf');
+        }
+        p {
+            font-family: "Paolos Handwriting";
+            font-size: 100px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body style="line-height: 75px;">
+<br><br><br>
+<p id="studioLabel" align="center">Da Vinci's Supermodel Studio</p>
+<div align="center">
+    <button onclick="window.location.href='/supermodel/browse'">browse</button><button onclick="window.location.href='/supermodel/runway/stage'">runwayStage</button>
+</div>
+<script type="module" th:src="@{/js/userHome.js}"></script>
+</body>
+
+</html>

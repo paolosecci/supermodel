@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Supermodel</title>
@@ -15,7 +15,7 @@
         }
         button {
              font-family: "Paolos Handwriting";
-             font-size: 100px;
+             font-size: 75px;
              margin: 0;
          }
 
@@ -23,7 +23,10 @@
 </head>
 <body>
     <p th:text="${NAME}" id="supermodelName">SDP</p><br>
-    <img th:src="@{${imgUrl}}" height="500"><br>
-    <button id="addToRunway" onclick="addToRunway()">Add To Runway</button>
+    <img th:src="@{${imgUrl}}" height="500" id="supermodelUrl"><br>
+    <script type="text/javascript" th:src="@{/js/supermodel.js}"></script>
+    <button id="runwayButton" onclick="addToRunway();">Add To Runway</button>
+    <p id="logSpot"></p>
+    <a th:src="${supermodelId}" id="smId"></a>
 </body>
 </html>

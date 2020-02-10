@@ -18,7 +18,7 @@ public class SupermodelService{
     private SupermodelRepository supermodelRepo;
 
     @Autowired
-    public SupermodelService(@Qualifier("mysql") SupermodelRepository supermodelRepo) {
+    public SupermodelService(@Qualifier("mysqlSupermodels") SupermodelRepository supermodelRepo) {
 
         this.supermodelRepo = supermodelRepo;
     }
@@ -29,16 +29,17 @@ public class SupermodelService{
         Supermodel supermodel = new Supermodel();
         supermodel.setName(name);
         supermodel.setImgUrl(imgUrl);
+        supermodel.setRunwayCount(0);
 
         //save new supermodel to db
         supermodelRepo.save(supermodel);
 
-        return "\n\n$PDBM >> Added " + name + " to DB.\n";
+        return "\n\n$PDBM >> Added " + name + " to Supermodel Table in supermodelDB.\n";
     }
 
-    public Iterable<Supermodel> getSupermodels() {
+    public List<Supermodel> getSupermodels() {
 
-        return supermodelRepo.findAll();
+        return StreamSupport.stream(supermodelRepo.findAll().spliterator(),false).collect(Collectors.toList());
     }
 
     public Supermodel findByName(String name){
@@ -102,6 +103,10 @@ public class SupermodelService{
         outStr += "\n";
 
         return outStr;
+    }
+
+    public Supermodel findById(int id){
+        return supermodelRepo.findById(id).orElse(null);
     }
 
     public String jsonify(Iterable<Supermodel> supermodels) throws JsonProcessingException {

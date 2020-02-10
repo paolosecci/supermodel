@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' th:href="@{/imgs/kim_k.jpg}" />
+    <title>Supermodels</title>
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            padding-inline-end: 0;
+            padding-inline-start: 0;
+
+            padding-block-end: 0;
+            padding-block-start: 0;
+        }
+        @font-face {
+            font-family: 'Paolos Handwriting';
+            src: url('/static/css/fonts/PaolosHandwriting-Regular.otf');
+        }
+        p {
+            font-family: "Paolos Handwriting";
+            font-size: 100px;
+            margin: 0;
+        }
+        a{
+            font-family: "Paolos Handwriting";
+            font-size: 150px;
+            height: 200px;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="line-height: 75px;">
+<div style="text-align: center;"><a id="browseCatalogTitle" href="/supermodel/in">Da Vinci</a></div>
+<p align="center">MySQL Supermodel Catalog</p>
+<div class="container" id="modelsLocation"></div>
+<script type="module" th:src="@{/js/browse.js}"></script>
+</body>
+</html>
