@@ -89,7 +89,7 @@ public class UserService{
         for(int i = 0; i < yosemite.length; i++){
             hash *= 3;
 
-            int asciiValue = Integer.parseInt(yosemite[i]) / hash;
+            int asciiValue = Integer.parseInt(yosemite[i] + "") / hash;
             sauce += Character.toString((char) asciiValue);
         }
 
